@@ -7,10 +7,7 @@ export default function Header() {
   return (
     <div>
        <header>
-        <ul>
-            <li><Link to="/login">SignIn</Link></li>
-            <li><Link to="/register">SignUp</Link></li>
-        </ul>
+
         </header>
     </div>
   )
