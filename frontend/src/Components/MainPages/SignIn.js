@@ -26,15 +26,22 @@ function SignIn() {
     }
 
     return (
-    <div>
+    <div className="signup-page">
         <form onSubmit={loginSubmit}>
-            <input type="email" name="email" required placeholder="Email" value={user.email} onChange={onChangeInput} />
-            <input type="password" name="password" required placeholder="Password" value={user.password} onChange={onChangeInput} autoComplete="on" />
-        
-            <div>
-                <button type="submit">Login</button>
-                <Link to = "/register">Register</Link>
-            </div>
+           <div className="log">
+           <h2>Login</h2></div>
+           <input type="email" name="email" required
+           placeholder="Email" value={user.email} onChange={onChangeInput} />
+
+          <input type="password" name="password" required autoComplete="on"
+          placeholder="Password" value={user.password} onChange={onChangeInput} />
+
+          <div className="row">
+             <button type="submit">Login</button>
+             <p>Don't have an account? </p>
+             <Link to="/register">SignUp</Link>
+          </div>  
+              
         </form>
     </div>
     
