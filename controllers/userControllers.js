@@ -48,8 +48,8 @@ const userControl = {
 
             const isMatch = await bcrypt.compare(password, user.password)
                 if(!isMatch) return res.status(400).json({msg: "Incorrect password."})
- 
-                const accesstoken = createAccessToken({id:user._id})
+             // If login success , create access token and refresh token
+                const accesstoken = createAccessToken({id: user._id})
                 const refreshtoken = createRefreshToken({id: user._id})
     
                 res.cookie('refreshtoken', refreshtoken, {
@@ -77,10 +77,10 @@ const userControl = {
     refreshToken: (req, res) =>{
         try {
             const rf_token = req.cookies.refreshtoken;
-            if(!rf_token) return res.status(400).json({msg:"Please Logi or Register"})
+            if(!rf_token) return res.status(400).json({msg:"Please Login or Register"})
            
             jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user) =>{
-                if(err) return res.status(400).json({msg:"Please Logi or Register"})
+                if(err) return res.status(400).json({msg:"Please Login or Register"})
                 const accesstoken = createAccessToken({id: user.id})
                 res.json({accesstoken})
             })
