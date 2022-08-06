@@ -1,5 +1,5 @@
-const { json } = require('express')
 const Category = require('../models/categoryModel')
+const Laws = require('../models/LawModel')
 
 
 const categoryControllers = {
@@ -29,6 +29,10 @@ const categoryControllers = {
 
     deleteCategory: async(req, res)=>{
         try {
+            const laws = await Laws.findOne({category: req.params.id})
+            if(laws) return res.status(400).json({
+                msg: "Please delete all products with a relationship."
+            })
             await Category.findByIdAndDelete(req.params.id)
             res.json({msg: "Category deleted."})
         } catch (err) {
