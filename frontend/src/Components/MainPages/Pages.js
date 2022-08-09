@@ -10,7 +10,7 @@ export default function Pages() {
     <Switch>
       <Route path="/login" exact component={SignIn} />
       <Route path="/register" exact component={SignUp} />
-      <Route path="*" exact component={NotFound} />
+      <Route path="" exact component={NotFound} />
     </Switch>
     
   )

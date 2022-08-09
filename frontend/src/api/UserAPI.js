@@ -4,14 +4,13 @@ import axios from 'axios'
 function UserAPI(token) {
     const [isLogged, setIsLogged] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
-    const [cart, setCart] = useState([])
-    const [history, setHistory] = useState([])
+
 
     useEffect(() =>{
         if(token){
             const getUser = async () =>{
                 try {
-                    const res = await axios.get('/owner/infor', {
+                    const res = await axios.get('/user/infor', {
                         headers: {Authorization: token}
                     })
 
@@ -33,9 +32,7 @@ function UserAPI(token) {
     return {
         isLogged: [isLogged, setIsLogged],
         isAdmin: [isAdmin, setIsAdmin],
-        cart: [cart, setCart],
-        addCart: addCart,
-        history: [history, setHistory]
+
     }
 }
 
