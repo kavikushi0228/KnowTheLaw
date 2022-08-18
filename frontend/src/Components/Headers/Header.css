@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: left;
+    min-height: 60px;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+  
+  }
+   header.font{
+    width: 100%;
+    vertical-align: middle;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    color: white;
+   }
