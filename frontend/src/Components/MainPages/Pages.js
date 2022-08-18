@@ -5,6 +5,8 @@ import SignUp from './SignUp'
 import NotFound from './NotFound'
 import Categories from './Categories'
 import {GlobalState} from '../../GlobalState'
+import Home from './Home'
+
 
 export default function Pages() {
 
@@ -14,13 +16,17 @@ export default function Pages() {
 
 
   return (
-    
+   <div>
+    main page
     <Switch>
+      
       <Route path="/login" exact component={isLogged ? NotFound : SignIn} />
       <Route path="/register" exact component={isLogged ? NotFound : SignUp} />
       <Route path="/categoty" exact component={isAdmin ? Categories : NotFound} />
-      <Route path="*" exact component={NotFound} />
+      <Route path="/" exact component={Home} />
+
+      <Route path="/*" exact component={NotFound} />
     </Switch>
-    
+    </div>
   )
 }
