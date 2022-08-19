@@ -14,7 +14,7 @@ class APIfeatures {
        excludedFields.forEach(el => delete(queryObj[el]))
        
        let queryStr = JSON.stringify(queryObj)
-       queryStr = queryStr.replace(/\b(gte|gt|lt|lte|regex)\b/g, match => '$' + match)
+       queryStr = queryStr.replace(/\b(regex)\b/g, match => '$' + match)
 
 
        this.query.find(JSON.parse(queryStr))
@@ -65,7 +65,7 @@ const lawController = {
 
         try {
             const {law_id,title, type, problem, involvers,description, consultation, solution, category} = req.body;
-
+           
             const law = await Laws.findOne({law_id})
             if(law)
                 return res.status(400).json({msg:"This law already exists."})
